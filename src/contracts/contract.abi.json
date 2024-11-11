@@ -1,60 +1,30 @@
 [
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "string",
-        "name": "username",
-        "type": "string"
-      }
-    ],
-    "name": "newUserRegistered",
-    "type": "event"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "user", "type": "address" }
-    ],
-    "name": "getUserDetails",
-    "outputs": [
-      {
-        "components": [
-          { "internalType": "string", "name": "username", "type": "string" },
-          { "internalType": "string", "name": "password", "type": "string" }
-        ],
-        "internalType": "struct SignupContract.User",
-        "name": "",
-        "type": "tuple"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "string", "name": "_username", "type": "string" },
-      { "internalType": "string", "name": "_password", "type": "string" }
-    ],
-    "name": "registerUser",
+    "inputs": [{ "internalType": "uint256", "name": "num", "type": "uint256" }],
+    "name": "divide",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
-    "name": "users",
-    "outputs": [
-      { "internalType": "string", "name": "username", "type": "string" },
-      { "internalType": "string", "name": "password", "type": "string" }
-    ],
+    "inputs": [],
+    "name": "getResult",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "num", "type": "uint256" }],
+    "name": "multiply",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "num", "type": "uint256" }],
+    "name": "subtract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]
