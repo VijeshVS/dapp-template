@@ -2,32 +2,14 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import { useWallet } from './hooks/useWallet';
 import Web3 from 'web3';
+import { sendTransaction } from './utils/sendTransaction';
 
 function App() {
-  const [x,account,loading] = useWallet();
-  const [balance,setBalance] = useState(0);
-  const [web3,setWeb3] = useState(null);
-  
-  useEffect(()=>{
-      if(!web3){
-        const web = new Web3(window.ethereum);
-
-        setWeb3(web);
-      }
-  },[])
-
-  async function getBalanceHandler () {
-    const bal = await web3.eth.getBalance(account);
-    const balanceInEther = web3.utils.fromWei(bal, 'ether');
-    setBalance(balanceInEther);
-
-    // console.log(Number(await web3.eth.getChainId()))
-  }
+  const [web3,account,loading] = useWallet();
 
   return (
     <div>
-      <button onClick={getBalanceHandler}>Get Balance</button>
-      <h1>{balance}</h1>
+      
     </div>
   )
 }
