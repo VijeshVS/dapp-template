@@ -1,4 +1,4 @@
-async function switchChain(targetChainId,web3Provider){
+export async function switchChain(targetChainId,web3Provider){
     try {
         // switch already existing chain in metamask
         await web3Provider.request({

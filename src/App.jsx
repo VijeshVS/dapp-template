@@ -1,6 +1,7 @@
 import "./App.css";
 import { useWallet } from "./hooks/useWallet";
-import CONTRACT_ABI from "./contracts/signup.json";
+import CONTRACT_ABI from "./contracts/contract.abi.json";
+import { switchChain } from "./utils/switchChain";
 const CONTRACT_ADDRESS = "0x6F11bd1966Bb1Ed686BE27871a2cfb76b0C9A198";
 
 function App() {
@@ -16,20 +17,30 @@ function App() {
     //   gas: 500000  // Adjust gas limit based on your contract's needs
     // });
     // console.log(details)
+    // console.log("chainegs")
+    // await switchChain(59141,web3);
+    // const chainId = await web3.eth.getChainId();
+    // console.log(chainId)
 
-    const gasEstimate = await contract.methods.getUserDetails(account).estimateGas({
-      from: account
-    });
+    // const gasEstimate = await contract.methods.getUserDetails(account).estimateGas({
+    //   from: account
+    // });
 
-    // const etherValue = web3.utils.fromWei(gasEstimate, 'gwei');
-    // console.log(etherValue)
+    // // const etherValue = web3.utils.fromWei(gasEstimate, 'gwei');
+    // // console.log(etherValue)
 
-    const details = await contract.methods.getUserDetails(account).call({
+    // const details = await contract.methods.getUserDetails(account).call({
+    //   from: account
+    // });
+
+    // console.log(details);
+
+    const tx = await contract.methods.registerUser("hello", "gg").send({
       from: account,
-      gas: gasEstimate
+      gas: 500000 // Adjust based on contract needs
     });
 
-    console.log(details);
+    console.log(tx)
   }
 
   return <div>
